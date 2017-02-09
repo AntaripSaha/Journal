@@ -11,6 +11,36 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="navbar navbar-default navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<a href="index.html" class="navbar-brand">Journal</a>
+						<button class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+							<span class="sr-only">Menu</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="menu">
+						<ul class="nav navbar-nav">
+							<li><a href="">Wall</a></li>
+							<li><a href="">Guest book</a></li>
+							<li><a href="">Profile</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="">Exit</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Ident from navbar, because navbar-fixed-top comes on top of the main container -->
+	<div class="navbar-ident"></div>
+	<!-- Ident from navbar, because navbar-fixed-top comes on top of the main container -->
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
@@ -69,10 +99,11 @@
 											<p>
 												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sed, perspiciatis odit labore voluptas eligendi praesentium, voluptate ab aspernatur dignissimos consequatur iste corrupti, quis eos? Voluptatibus, tenetur ab eaque? Praesentium.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sed, perspiciatis odit labore voluptas eligendi praesentium, voluptate ab aspernatur dignissimos consequatur iste corrupti, quis eos? Voluptatibus, tenetur ab eaque? Praesentium.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sed, perspiciatis odit labore voluptas eligendi praesentium, voluptate ab aspernatur dignissimos consequatur iste corrupti, quis eos? Voluptatibus, tenetur ab eaque? Praesentium.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sed, perspiciatis odit labore voluptas eligendi praesentium, voluptate ab aspernatur dignissimos consequatur iste corrupti, quis eos? Voluptatibus, tenetur ab eaque? Praesentium.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sed, perspiciatis odit labore voluptas eligendi praesentium, voluptate ab aspernatur dignissimos consequatur iste corrupti, quis eos? Voluptatibus, tenetur ab eaque? Praesentium.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sed, perspiciatis odit labore voluptas eligendi praesentium, voluptate ab aspernatur dignissimos consequatur iste corrupti, quis eos? Voluptatibus, tenetur ab eaque? Praesentium.
 											</p>
-											<div class="pull-right">
-												<a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-												<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-											</div>
+											<hr>
+											<a href="" class="btn btn-link" style="padding-left: 0;">Reply</a>
+											<a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+											<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+											<div class="clearfix" style="margin-bottom: 15px;"></div>
 											<div class="panel-group">
 												<!-- Sub comment -->
 											</div>
@@ -93,10 +124,10 @@
 											<p>
 												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sed, perspiciatis odit labore voluptas eligendi praesentium, voluptate ab aspernatur dignissimos consequatur iste corrupti, quis eos?
 											</p>
-											<div class="pull-right">
-												<a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-												<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-											</div>
+											<hr>
+											<a href="" class="btn btn-link" style="padding-left: 0;">Reply</a>
+											<a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+											<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 											<div class="clearfix" style="margin-bottom: 15px;"></div>
 											<div class="panel-group">
 												<!-- Sub comment -->
@@ -113,10 +144,10 @@
 																<p>
 																	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sed, perspiciatis odit labore voluptas eligendi praesentium, voluptate ab aspernatur dignissimos consequatur iste corrupti, quis eos?
 																</p>
-																<div class="pull-right">
-																	<a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-																	<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-																</div>
+																<hr>
+																<a href="" class="btn btn-link" style="padding-left: 0;">Reply</a>
+																<a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+																<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 															</div>
 														</div>
 													</div>
@@ -135,10 +166,10 @@
 																<p>
 																	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sed, perspiciatis odit labore voluptas eligendi praesentium, voluptate ab aspernatur dignissimos consequatur iste corrupti, quis eos?
 																</p>
-																<div class="pull-right">
-																	<a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-																	<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-																</div>
+																<hr>
+																<a href="" class="btn btn-link" style="padding-left: 0;">Reply</a>
+																<a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+																<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 															</div>
 														</div>
 													</div>
@@ -157,10 +188,10 @@
 																<p>
 																	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla sed, perspiciatis odit labore voluptas eligendi praesentium, voluptate ab aspernatur dignissimos consequatur iste corrupti, quis eos?
 																</p>
-																<div class="pull-right">
-																	<a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-																	<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-																</div>
+																<hr>
+																<a href="" class="btn btn-link" style="padding-left: 0;">Reply</a>
+																<a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+																<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 															</div>
 														</div>
 													</div>
