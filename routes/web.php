@@ -17,13 +17,15 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+Route::group(['middleware'=>['web', 'auth']], function () {
+	Route::get('/profile', 'ProfileController@show');
+	Route::post('/profile', 'ProfileController@edit')->name('profile');
+});
+
 Route::get('/guestbook', 'GuestbookController@show');
 
 Route::post('/guestbook', 'GuestbookController@add')->name('guestbook');
-
-Route::get('/profile', function () {
-	return view('profile');
-});
 
 Route::get('/home', 'HomeController@index');
 
