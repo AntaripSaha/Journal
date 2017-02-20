@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Guestbook;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Feedbacks;
 
 class GuestbookController extends Controller
