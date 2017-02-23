@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Wall;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
+use App\Like;
+use Auth;
 class ArticleController extends Controller
 {
     //
@@ -15,18 +17,34 @@ class ArticleController extends Controller
     	return view('article', ['article' => $article]);
     }
 
-    public function like($id) {
-    	$article = Article::find($id);
+    public function like($articleId) {
+        $userId = Auth::user()->id;
+
+        Like::create([
+            'user_id' => $userId,
+            'article_id' => $articleId,
+            'status' => true
+            ]);
+
+    	$article = Article::find($articleId);
 		$article->rating = $article->rating + 1;
 		$article->save();
-		return redirect(url('/articles/'.$id));
+		return redirect(url('/articles/'.$articleId));
     }
 
-    public function dislike($id) {
-    	$article = Article::find($id);
+    public function dislike($articleId) {
+        $userId = Auth::user()->id;
+        
+        Like::create([
+            'user_id' => $userId,
+            'article_id' => $articleId,
+            'status' => false
+            ]);
+
+    	$article = Article::find($articleId);
 		$article->rating = $article->rating - 1;
 		$article->save();
-		return redirect(url('/articles/'.$id));
+		return redirect(url('/articles/'.$articleId));
     }
 
 

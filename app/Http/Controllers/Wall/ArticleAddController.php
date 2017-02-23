@@ -23,12 +23,25 @@ class ArticleAddController extends Controller
             'article' => 'required|max:2048'
         ]);
 
+
     	$data = $request->all();
-    	$userid = Auth::user()->id;
+
+        //dump($data['tags']);
+        preg_match_all("/(#\w+)/u", $data['tags'], $tags);
+        
+        //dd($tags);    
+        
+        $tags = implode(" ", $tags[0]);
+
+        //dd($tags); 	
+
+
+
+        $userid = Auth::user()->id;
     	$article = Article::create([
             'title' => $data['title'],
             'introduction' => $data['introduction'],
-            'tags' => $data['tags'],
+            'tags' => $tags,
             'article' => $data['article'],
             'rating' => 0,
             'user_id' => $userid

@@ -30,7 +30,7 @@
 						</div>
 						<div class="form-group{{ $errors->has('tags') ? ' has-error' : '' }}">
 							<label for="tags">Tags</label>
-							<textarea class="form-control comment-box" name="tags" id="" cols="30" rows="10" placeholder="Search #tags">{{ old('tags') }}</textarea>
+							<textarea class="form-control comment-box" name="tags" id="" cols="30" rows="10" placeholder="Your tags should look like: #today #is #a #good #day">{{ old('tags') }}</textarea>
 							@if($errors->has('tags'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('tags') }}</strong>

@@ -18,7 +18,6 @@ class WallController extends Controller
 
     	//$articles = Article::all();
     	$articles = Article::latest('id')->get();
-
     	return view('index', ['articles' => $articles]);
     }
 }

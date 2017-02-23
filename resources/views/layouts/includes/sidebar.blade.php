@@ -5,15 +5,13 @@
 				<div class="panel-heading">
 					<h3 class="panel-title">Search by tag</h3>
 				</div>
-				<div class="panel-body">
-					<form action="">
-						<div class="input-group">
-							<span class="input-group-addon">	
-								<i class="fa fa-search"></i>
-							</span>
-							<input type="text" class="form-control" placeholder="Search by tag">
-						</div>
-					</form>
+				<div class="panel-body">			
+					<div class="input-group">
+						<span class="input-group-addon">	
+							<i class="fa fa-search"></i>
+						</span>
+						<input id="search-by-tag" type="text" class="form-control" placeholder="Search by tag">
+					</div>
 				</div>
 			</div>
 			<br>
@@ -37,3 +35,16 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function() {
+		console.log(window.location.pathname);
+		$("#search-by-tag").keydown(function(event) {
+			if(event.keyCode == 13) {
+				var tags = $("#search-by-tag").val().match(/(\w+)/g);
+				console.log(tags);
+				location.pathname = "/searchbytag/"+tags;			
+			}
+		});
+	});
+</script>
