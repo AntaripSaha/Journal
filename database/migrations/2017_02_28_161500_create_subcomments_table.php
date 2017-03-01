@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticlesTable extends Migration
+class CreateSubcommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('subcomments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('title', 128);
-            $table->string('introduction', 512);
-            $table->string('tags', 256)->nullable();
-            $table->string('article', 2048);
-            $table->integer('rating')->default(0);
+            $table->integer('article_id')->unsigned();
+            $table->integer('comment_id')->unsigned();
+            $table->string('comment', 256);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
+            $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,7 +33,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('subcomments');
     }
 }

@@ -25,7 +25,7 @@
 			<div class="navbar navbar-default navbar-fixed-top">
 				<div class="container">
 					<div class="navbar-header">
-						<a href="/" class="navbar-brand">Journal</a>
+						<a href="{{ route('home') }}" class="navbar-brand">Journal</a>
 						<button class="navbar-toggle" data-toggle="collapse" data-target="#menu">
 							<span class="sr-only">Menu</span>
 							<span class="icon-bar"></span>
@@ -36,8 +36,8 @@
 					<div class="collapse navbar-collapse" id="menu">
 						@if(Auth::guest())
 						<ul class="nav navbar-nav">
-							<li><a href="/">Wall</a></li>
-							<li><a href="/guestbook">Guest book</a></li>
+							<li><a href="{{ route('articles.index') }}">Wall</a></li>
+							<li><a href="{{ route('feedback.index') }}">Feedback</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="{{ route('register') }}">Sign up</a></li>
@@ -45,9 +45,9 @@
 						</ul>
 						@else
 						<ul class="nav navbar-nav">
-							<li><a href="/">Wall</a></li>
-							<li><a href="/guestbook">Guest book</a></li>
-							<li><a href="/profile">Profile</a></li>
+							<li><a href="{{ route('articles.index') }}">Wall</a></li>
+							<li><a href="{{ route('feedback.index') }}">Feedback</a></li>
+							<li><a href="{{ route('profile.index') }}">Profile</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li>

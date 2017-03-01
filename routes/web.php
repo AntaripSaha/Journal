@@ -13,28 +13,30 @@
 
 Auth::routes();
 
-Route::get('/', 'Wall\WallController@show');
-Route::get('articles/{id}', 'Wall\ArticleController@show');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+
+Route::get('feedback', ['uses' => 'Feedback\FeedbackController@index', 'as' => 'feedback.index']);
+Route::post('feedback', ['uses' => 'Feedback\FeedbackController@store', 'as' => 'feedback.store']);
+Route::delete('feedback/{id}', ['uses' => 'Feedback\FeedbackController@destroy', 'as' => 'feedback.destroy', 'middleware' => ['auth', 'admin']]);
+
+Route::resource('articles', 'Article\ArticleController');
+Route::get('articles/{id}/like/{status}', 'Article\LikeController@like')->name('articles.like')->middleware(['auth']);
+Route::post('articles/{id}/comment', ['uses'=>'Article\CommentController@add', 'as'=>'articles.comment'])->middleware(['auth']);
+Route::delete('articles/{id}/comment/{comment}/destroy', ['uses'=>'Article\CommentController@destroy', 'as'=>'articles.comment.destroy', 'middleware' => ['auth', 'admin']]);
+
+Route::post('articles/{id}/subcomment/{comment}', ['uses'=>'Article\SubcommentController@add', 'as'=>'articles.comment.subcomment'])->middleware(['auth']);
+Route::delete('articles/{id}/subcomment/{comment}/destroy', ['uses'=>'Article\SubcommentController@destroy', 'as'=>'articles.comment.subcomment.destroy', 'middleware' => ['auth', 'admin']]);
+
 Route::get('/searchbytag/{tag}', 'Search\SearchbytagController@result');
 
 Route::group(['middleware'=>['web', 'auth']], function (){
-	Route::get('article/like/{id}', ['uses'=>'Wall\ArticleController@like']);
-	Route::get('article/dislike/{id}', ['uses'=>'Wall\ArticleController@dislike']);
-	Route::get('article/delete/{id}', ['uses'=>'Wall\ArticleDeleteController@delete']);
-	//
-	Route::get('/article/add', ['uses'=>'Wall\ArticleAddController@show']);
-	Route::post('/article/add', ['uses'=>'Wall\ArticleAddController@add', 'as'=>'articleAdd']);
-	//
-	Route::get('/profile', 'Profile\ProfileController@show');
-	Route::post('/profile', 'Profile\ProfileController@edit')->name('profile');
+	Route::get('/profile', 'Profile\ProfileController@index')->name('profile.index');
+	Route::post('/profile', 'Profile\ProfileController@edit')->name('profile.edit');
 });
 
-Route::get('/guestbook', 'Guestbook\GuestbookController@show');
-Route::post('/guestbook', 'Guestbook\GuestbookController@add')->name('guestbook');
-Route::get('/home', 'HomeController@index');
-
-Route::group(['prefix'=>'admin', 'middleware'=>['web', 'auth']], function () {
-	Route::get('/', function () {
-		return view('welcome');
-	});
+Route::group(['prefix'=>'admin', 'middleware'=>['web', 'auth', 'admin']], function () {
+	Route::get('/', ['uses'=>'Admin\AdminController@show', 'as' => 'adminIndex']);
+	Route::get('/userlist', ['uses'=>'Admin\UserListController@show', 'as'=>'userList']);
 });
+

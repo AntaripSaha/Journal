@@ -23,7 +23,7 @@
 						</div>
 					</div>
 					<hr>
-					<form action="{{ route('profile') }}" method="POST">
+					<form action="{{ route('profile.edit') }}" method="POST">
 						{{ csrf_field() }}
 						<div class="row">
 							<div class="col-xs-6">

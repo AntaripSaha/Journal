@@ -8,7 +8,7 @@
 			<hr>
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<form method="POST" action="{{ route('articleAdd') }}">
+					<form method="POST" action="{{ route('articles.store') }}">
 						{{ csrf_field() }}
 						<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
 							<label for="title">Title *</label>
